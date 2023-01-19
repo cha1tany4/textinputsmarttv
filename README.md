@@ -1,4 +1,4 @@
-# textinputsmarttv
+# 2-Row Predictive keyboard and Quad-Directional keyboard: an investigation into two novel text input methods for smart TVs
 
 For using the prototypes on Amazon Fire TV devices,
 

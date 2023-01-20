@@ -26,91 +26,100 @@ var totalTime = 0; // integer
 
 correction();
 
-document.onkeydown = function (e) {
-  if (start == 1) {moveTime.push(Date.now());
+document.onkeydown = function(e) {
+  if (start == 1) {
+    moveTime.push(Date.now());
     // sleep(50);
     switch (e.keyCode) {
-      case 13: /*ENTER*/
+      case 13:
+        /*ENTER*/
         select();
         totalClicks++;
         moves.push("S");
         break;
-        case 16: /*SHIFT*/
+      case 16:
+        /*SHIFT*/
         select();
         totalClicks++;
         moves.push("S");
         break;
-        case 32: /*SPACE*/
+      case 32:
+        /*SPACE*/
         select();
         totalClicks++;
         moves.push("S");
         break;
-        case 37: /*LEFT*/
+      case 37:
+        /*LEFT*/
         moveLeft();
         moveCount++;
         moves.push("L");
         break;
-        case 38: /*UP*/
+      case 38:
+        /*UP*/
         moveUp();
         moveCount++;
         moves.push("U");
         break;
-        case 39: /*RIGHT*/
+      case 39:
+        /*RIGHT*/
         moveRight();
         moveCount++;
         moves.push("R");
         break;
-        case 40: /*DOWN*/
+      case 40:
+        /*DOWN*/
         moveDown();
         moveCount++;
         moves.push("D");
         break;
-        case 227:
+      case 227:
         window.open("", "_self").close();
         break;
-        case 228:
+      case 228:
         startTest();
         break;
-        default:
+      default:
         break;
     }
     moveAlphabets.push(document.getElementById(selection).innerHTML);
     if (document.getElementById("inputText").innerText == "THE WITCHER") {
-        window.alert("finish!");
-        console.log("Move Count: " + moveCount);
-        totalClicks += moveCount;
-        console.log("Total Clicks: " + totalClicks);
-        console.log("Moves: " + moves);
-        console.log("Move Alphabets: " + moveAlphabets);
-        totalTime = moveTime.length;
-        totalTime = moveTime[totalTime-1] - moveTime[0];
-        console.log("Total Time: " + totalTime);
-        console.log("Move Times: " + moveTime);
-      }
-      correction();} else {
-        switch (e.keyCode) {
+      window.alert("finish!");
+      console.log("Move Count: " + moveCount);
+      totalClicks += moveCount;
+      console.log("Total Clicks: " + totalClicks);
+      console.log("Moves: " + moves);
+      console.log("Move Alphabets: " + moveAlphabets);
+      totalTime = moveTime.length;
+      totalTime = moveTime[totalTime - 1] - moveTime[0];
+      console.log("Total Time: " + totalTime);
+      console.log("Move Times: " + moveTime);
+    }
+    correction();
+  } else {
+    switch (e.keyCode) {
       case 227:
-      window.open("", "_self").close();
-      break;
+        window.open("", "_self").close();
+        break;
       case 228:
         startTest();
-      break;
+        break;
       default:
-      break;
+        break;
     };
     moveCount = 0; // integer LURD
-totalClicks = 0; // intger LURDS
-moves = []; // array LURDS
-moveAlphabets = []; // array alphabets
-moveTime = []; // array timestamps
-totalTime = 0;
-      }
+    totalClicks = 0; // intger LURDS
+    moves = []; // array LURDS
+    moveAlphabets = []; // array alphabets
+    moveTime = []; // array timestamps
+    totalTime = 0;
+  }
 };
 
 function addBorder() {
   var elementA = document.getElementById(oldselection);
   elementA.classList.replace("text-bg-white", "text-bg-dark");
-  var elementB = document.getElementById(selection); 
+  var elementB = document.getElementById(selection);
   elementB.classList.replace("text-bg-dark", "text-bg-white");
 };
 
@@ -159,217 +168,216 @@ function select() {
 
 function moveLeft() {
   if (selection == 85) {
-   oldselection = selection;
-   selection = 95;
-   addBorder();
-   return;
- } else if (selection == 95) {
-   oldselection = selection;
-   selection = 85;
-   addBorder();
-   return;
- } else if (selection == 0) {
-   oldselection = selection;
-   selection = 5;
-   addBorder();
-   return;
- } else if (selection == 10) {
-   oldselection = selection;
-   selection = 15;
-   addBorder();
-   return;
- } else if (selection == 20) {
-   oldselection = selection;
-   selection = 25;
-   addBorder();
-   return;
- } else if (selection == 30) {
-   oldselection = selection;
-   selection = 35;
-   addBorder();
-   return;
- } else if (selection == 40) {
-   oldselection = selection;
-   selection = 45;
-   addBorder();
-   return;
- } else if (selection == 50) {
-   oldselection = selection;
-   selection = 55;
-   addBorder();
-   return;
- } else {
-   oldselection = selection;
-   maths = selection - 1;
-   selection = maths;
-   addBorder();
-   return;
- }
- return;
+    oldselection = selection;
+    selection = 95;
+    addBorder();
+    return;
+  } else if (selection == 95) {
+    oldselection = selection;
+    selection = 85;
+    addBorder();
+    return;
+  } else if (selection == 0) {
+    oldselection = selection;
+    selection = 5;
+    addBorder();
+    return;
+  } else if (selection == 10) {
+    oldselection = selection;
+    selection = 15;
+    addBorder();
+    return;
+  } else if (selection == 20) {
+    oldselection = selection;
+    selection = 25;
+    addBorder();
+    return;
+  } else if (selection == 30) {
+    oldselection = selection;
+    selection = 35;
+    addBorder();
+    return;
+  } else if (selection == 40) {
+    oldselection = selection;
+    selection = 45;
+    addBorder();
+    return;
+  } else if (selection == 50) {
+    oldselection = selection;
+    selection = 55;
+    addBorder();
+    return;
+  } else {
+    oldselection = selection;
+    maths = selection - 1;
+    selection = maths;
+    addBorder();
+    return;
+  }
+  return;
 }
 
 function moveRight() {
   if (selection == 85) {
-   oldselection = selection;
-   selection = 95;
-   addBorder();
-   return;
- } else if (selection == 95) {
-   oldselection = selection;
-   selection = 85;
-   addBorder();
-   return;
- } else if (selection == 5) {
-   oldselection = selection;
-   selection = 0;
-   addBorder();
-   return;
- } else if (selection == 15) {
-   oldselection = selection;
-   selection = 10;
-   addBorder();
-   return;
- } else if (selection == 25) {
-   oldselection = selection;
-   selection = 20;
-   addBorder();
-   return;
- } else if (selection == 35) {
-   oldselection = selection;
-   selection = 30;
-   addBorder();
-   return;
- } else if (selection == 45) {
-   oldselection = selection;
-   selection = 40;
-   addBorder();
-   return;
- } else if (selection == 55) {
-   oldselection = selection;
-   selection = 50;
-   addBorder();
-   return;
- } else {
-   oldselection = selection;
-   maths = selection + 1;
-   selection = maths;
-   addBorder();
-   return;
- }
- return;
+    oldselection = selection;
+    selection = 95;
+    addBorder();
+    return;
+  } else if (selection == 95) {
+    oldselection = selection;
+    selection = 85;
+    addBorder();
+    return;
+  } else if (selection == 5) {
+    oldselection = selection;
+    selection = 0;
+    addBorder();
+    return;
+  } else if (selection == 15) {
+    oldselection = selection;
+    selection = 10;
+    addBorder();
+    return;
+  } else if (selection == 25) {
+    oldselection = selection;
+    selection = 20;
+    addBorder();
+    return;
+  } else if (selection == 35) {
+    oldselection = selection;
+    selection = 30;
+    addBorder();
+    return;
+  } else if (selection == 45) {
+    oldselection = selection;
+    selection = 40;
+    addBorder();
+    return;
+  } else if (selection == 55) {
+    oldselection = selection;
+    selection = 50;
+    addBorder();
+    return;
+  } else {
+    oldselection = selection;
+    maths = selection + 1;
+    selection = maths;
+    addBorder();
+    return;
+  }
+  return;
 }
 
 function moveUp() {
   if (selection == 85) {
-   oldselection = selection;
-   selection = 51;
-   addBorder();
-   return;
- } else if (selection == 95) {
-   oldselection = selection;
-   selection = 54;
-   addBorder();
-   return;
- } else if (selection == 0) {
-   // oldselection = selection;
-   // selection = 85;
-   // addBorder();
-   return;
- } else if (selection == 1) {
-   // oldselection = selection;
-   // selection = 85;
-   // addBorder();
-   return;
- } else if (selection == 2) {
-   // oldselection = selection;
-   // selection = 85;
-   // addBorder();
-   return;
- } else if (selection == 3) {
-   // oldselection = selection;
-   // selection = 95;
-   // addBorder();
-   return;
- } else if (selection == 4) {
-   // oldselection = selection;
-   // selection = 95;
-   // addBorder();
-   return;
- } else if (selection == 5) {
-   // oldselection = selection;
-   // selection = 95;
-   // addBorder();
-   return;
- } else {
-   oldselection = selection;
-   maths = selection - 10;
-   selection = maths;
-   addBorder();
-   return;
- }
+    oldselection = selection;
+    selection = 51;
+    addBorder();
+    return;
+  } else if (selection == 95) {
+    oldselection = selection;
+    selection = 54;
+    addBorder();
+    return;
+  } else if (selection == 0) {
+    // oldselection = selection;
+    // selection = 85;
+    // addBorder();
+    return;
+  } else if (selection == 1) {
+    // oldselection = selection;
+    // selection = 85;
+    // addBorder();
+    return;
+  } else if (selection == 2) {
+    // oldselection = selection;
+    // selection = 85;
+    // addBorder();
+    return;
+  } else if (selection == 3) {
+    // oldselection = selection;
+    // selection = 95;
+    // addBorder();
+    return;
+  } else if (selection == 4) {
+    // oldselection = selection;
+    // selection = 95;
+    // addBorder();
+    return;
+  } else if (selection == 5) {
+    // oldselection = selection;
+    // selection = 95;
+    // addBorder();
+    return;
+  } else {
+    oldselection = selection;
+    maths = selection - 10;
+    selection = maths;
+    addBorder();
+    return;
+  }
 }
 
 function moveDown() {
   if (selection == 85) {
-   // oldselection = selection;
-   // selection = 0;
-   // addBorder();
-   return;
- } else if (selection == 95) {
-   // oldselection = selection;
-   // selection = 3;
-   // addBorder();
-   return;
- } else if (selection == 50) {
-   oldselection = selection;
-   selection = 85;
-   addBorder();
-   return;
- } else if (selection == 51) {
-   oldselection = selection;
-   selection = 85;
-   addBorder();
-   return;
- } else if (selection == 52) {
-   oldselection = selection;
-   selection = 85;
-   addBorder();
-   return;
- } else if (selection == 53) {
-   oldselection = selection;
-   selection = 95;
-   addBorder();
-   return;
- } else if (selection == 54) {
-   oldselection = selection;
-   selection = 95;
-   addBorder();
-   return;
- } else if (selection == 55) {
-   oldselection = selection;
-   selection = 95;
-   addBorder();
-   return;
- } else {
-   oldselection = selection;
-   maths = selection + 10;
-   selection = maths;
-   addBorder();
-   return;
- }
+    // oldselection = selection;
+    // selection = 0;
+    // addBorder();
+    return;
+  } else if (selection == 95) {
+    // oldselection = selection;
+    // selection = 3;
+    // addBorder();
+    return;
+  } else if (selection == 50) {
+    oldselection = selection;
+    selection = 85;
+    addBorder();
+    return;
+  } else if (selection == 51) {
+    oldselection = selection;
+    selection = 85;
+    addBorder();
+    return;
+  } else if (selection == 52) {
+    oldselection = selection;
+    selection = 85;
+    addBorder();
+    return;
+  } else if (selection == 53) {
+    oldselection = selection;
+    selection = 95;
+    addBorder();
+    return;
+  } else if (selection == 54) {
+    oldselection = selection;
+    selection = 95;
+    addBorder();
+    return;
+  } else if (selection == 55) {
+    oldselection = selection;
+    selection = 95;
+    addBorder();
+    return;
+  } else {
+    oldselection = selection;
+    maths = selection + 10;
+    selection = maths;
+    addBorder();
+    return;
+  }
 }
 
 function animation() {
   var selected = document.getElementById(selection);
   selected.classList.add("animate");
-  setTimeout(() =>
-  {
+  setTimeout(() => {
     selected.classList.remove("animate");
   }, 250);
 }
 
 function correction() {
-  if(!CSS.supports("'selector(html:has(body))")) {
+  if (!CSS.supports("'selector(html:has(body))")) {
     if (!document.getElementById(85).classList.contains("text-bg-white")) {
       document.getElementById(85).classList.replace("text-bg-dark", "text-bg-primary");
     }
@@ -384,10 +392,11 @@ function correction() {
     }
   }
 }
+
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
+    if ((new Date().getTime() - start) > milliseconds) {
       break;
     }
   }

@@ -27,53 +27,60 @@ var moveTime = []; // array timestamps
 var totalTime = 0; // integer
 
 correction();
-document.onkeydown = function (e) {
+document.onkeydown = function(e) {
 	if (start == 1) {
 		moveTime.push(Date.now());
 		switch (e.keyCode) {
-			case 13: /*ENTER*/
-			select();
-			totalClicks++;
-			moves.push("S");
-			break;
-			case 16: /*SHIFT*/
-			select();
-			totalClicks++;
-			moves.push("S");
-			break;
-			case 32: /*SPACE*/
-			select();
-			totalClicks++;
-			moves.push("S");
-			break;
-			case 37: /*LEFT*/
-			moveLeft();
-			moveCount++;
-			moves.push("L");
-			break;
-			case 38: /*UP*/
-			moveUp();
-			moveCount++;
-			moves.push("U");
-			break;
-			case 39: /*RIGHT*/
-			moveRight();
-			moveCount++;
-			moves.push("R");
-			break;
-			case 40: /*DOWN*/
-			moveDown();
-			moveCount++;
-			moves.push("D");
-			break;
-	    case 227:
-	    window.open("", "_self").close();
-	    break;
-	    case 228:
+			case 13:
+				/*ENTER*/
+				select();
+				totalClicks++;
+				moves.push("S");
+				break;
+			case 16:
+				/*SHIFT*/
+				select();
+				totalClicks++;
+				moves.push("S");
+				break;
+			case 32:
+				/*SPACE*/
+				select();
+				totalClicks++;
+				moves.push("S");
+				break;
+			case 37:
+				/*LEFT*/
+				moveLeft();
+				moveCount++;
+				moves.push("L");
+				break;
+			case 38:
+				/*UP*/
+				moveUp();
+				moveCount++;
+				moves.push("U");
+				break;
+			case 39:
+				/*RIGHT*/
+				moveRight();
+				moveCount++;
+				moves.push("R");
+				break;
+			case 40:
+				/*DOWN*/
+				moveDown();
+				moveCount++;
+				moves.push("D");
+				break;
+			case 227:
+				window.open("", "_self").close();
+				break;
+			case 228:
 				startTest();
 				break;
-	    default:
-	    break;
+			default:
+				break;
 		};
 		moveAlphabets.push(document.getElementById(selection).innerHTML);
 		if (document.getElementById("inputText").innerText == "THE WITCHER") {
@@ -84,21 +91,21 @@ document.onkeydown = function (e) {
 			console.log("Moves: " + moves);
 			console.log("Move Alphabets: " + moveAlphabets);
 			totalTime = moveTime.length;
-			totalTime = moveTime[totalTime-1] - moveTime[0];
+			totalTime = moveTime[totalTime - 1] - moveTime[0];
 			console.log("Total Time: " + totalTime);
 			console.log("Move Times: " + moveTime);
 		}
 		correction();
 	} else {
-			switch (e.keyCode) {
-	    case 227:
-	    window.open("", "_self").close();
-	    break;
-	    case 228:
+		switch (e.keyCode) {
+			case 227:
+				window.open("", "_self").close();
+				break;
+			case 228:
 				startTest();
-			break;
-	    default:
-	    break;
+				break;
+			default:
+				break;
 		};
 		moveCount = 0; // integer LURD
 		totalClicks = 0; // intger LURDS
@@ -112,8 +119,8 @@ document.onkeydown = function (e) {
 function moveUp() {
 	if (state == 1) {
 		state = 0;
-		document.getElementById("row").style.zIndex="100";
-		document.getElementById("column").style.zIndex="1000";
+		document.getElementById("row").style.zIndex = "100";
+		document.getElementById("column").style.zIndex = "1000";
 		oldSelection = selection;
 		selection = 6;
 		changeKey();
@@ -134,8 +141,8 @@ function moveUp() {
 function moveDown() {
 	if (state == 1) {
 		state = 0;
-		document.getElementById("row").style.zIndex="100";
-		document.getElementById("column").style.zIndex="1000";
+		document.getElementById("row").style.zIndex = "100";
+		document.getElementById("column").style.zIndex = "1000";
 		oldSelection = selection;
 		selection = 8;
 		changeKey();
@@ -156,8 +163,8 @@ function moveDown() {
 function moveLeft() {
 	if (state == 0) {
 		state = 1;
-		document.getElementById("row").style.zIndex="1000";
-		document.getElementById("column").style.zIndex="100";
+		document.getElementById("row").style.zIndex = "1000";
+		document.getElementById("column").style.zIndex = "100";
 		oldSelection = selection;
 		selection = 106;
 		changeKey();
@@ -178,8 +185,8 @@ function moveLeft() {
 function moveRight() {
 	if (state == 0) {
 		state = 1;
-		document.getElementById("row").style.zIndex="1000";
-		document.getElementById("column").style.zIndex="100";
+		document.getElementById("row").style.zIndex = "1000";
+		document.getElementById("column").style.zIndex = "100";
 		oldSelection = selection;
 		selection = 108;
 		changeKey();
@@ -206,9 +213,9 @@ function select() {
 			str = str.substring(0, str.length - 1);
 			document.getElementById("inputText").innerText = str;
 		} else if (selection == 14) {
-			document.getElementById("inputText").innerText += " ";	
+			document.getElementById("inputText").innerText += " ";
 		} else {
-			document.getElementById("inputText").innerText += col[selection];	
+			document.getElementById("inputText").innerText += col[selection];
 		}
 	} else if (state == 1) {
 		if (selection == 107) {
@@ -216,9 +223,9 @@ function select() {
 			str = str.substring(0, str.length - 1);
 			document.getElementById("inputText").innerText = str;
 		} else if (selection == 114) {
-			document.getElementById("inputText").innerText += " ";	
+			document.getElementById("inputText").innerText += " ";
 		} else {
-			document.getElementById("inputText").innerText += row[selection-100];	
+			document.getElementById("inputText").innerText += row[selection - 100];
 		}
 	}
 }
@@ -251,30 +258,30 @@ function animation() {
 }
 
 function correction() {
-	if(!CSS.supports('selector(html:has(body))')) {
+	if (!CSS.supports('selector(html:has(body))')) {
 		if (!document.getElementById(7).classList.contains("text-bg-white")) {
-      document.getElementById(7).classList.replace("text-bg-dark", "text-bg-primary");
-    }
-    if (selection == 7) {
-      document.getElementById(7).classList.replace("text-bg-primary", "text-bg-white");
-    }
-    if (!document.getElementById(107).classList.contains("text-bg-white")) {
-      document.getElementById(107).classList.replace("text-bg-dark", "text-bg-primary");
-    }
-    if (selection == 107) {
-      document.getElementById(107).classList.replace("text-bg-primary", "text-bg-white");
-    }
-    if (!document.getElementById(14).classList.contains("text-bg-white")) {
-      document.getElementById(14).classList.replace("text-bg-dark", "text-bg-primary");
-    }
-    if (selection == 14) {
-      document.getElementById(14).classList.replace("text-bg-primary", "text-bg-white");
-    }
-    if (!document.getElementById(114).classList.contains("text-bg-white")) {
-      document.getElementById(114).classList.replace("text-bg-dark", "text-bg-primary");
-    }
-    if (selection == 114) {
-      document.getElementById(114).classList.replace("text-bg-primary", "text-bg-white");
-    }
+			document.getElementById(7).classList.replace("text-bg-dark", "text-bg-primary");
+		}
+		if (selection == 7) {
+			document.getElementById(7).classList.replace("text-bg-primary", "text-bg-white");
+		}
+		if (!document.getElementById(107).classList.contains("text-bg-white")) {
+			document.getElementById(107).classList.replace("text-bg-dark", "text-bg-primary");
+		}
+		if (selection == 107) {
+			document.getElementById(107).classList.replace("text-bg-primary", "text-bg-white");
+		}
+		if (!document.getElementById(14).classList.contains("text-bg-white")) {
+			document.getElementById(14).classList.replace("text-bg-dark", "text-bg-primary");
+		}
+		if (selection == 14) {
+			document.getElementById(14).classList.replace("text-bg-primary", "text-bg-white");
+		}
+		if (!document.getElementById(114).classList.contains("text-bg-white")) {
+			document.getElementById(114).classList.replace("text-bg-dark", "text-bg-primary");
+		}
+		if (selection == 114) {
+			document.getElementById(114).classList.replace("text-bg-primary", "text-bg-white");
+		}
 	}
 }

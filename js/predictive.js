@@ -52,7 +52,7 @@ let pred = [
 	["T", "P", "I", "A", "E", "O"],
 	["O", "S", "E", "A", "T", "N"],
 	["A", "E", "I", "O", "U", "Z"]
-	];
+];
 
 secondKeyboard();
 
@@ -67,76 +67,85 @@ var totalTime = 0; // integer
 correction();
 
 document.onkeydown = function(e) {
-	if (start == 1) {moveTime.push(Date.now());
-// sleep(50);
-	switch (e.keyCode) {
-case 13: /*ENTER*/
-		select();
-		totalClicks++;
-		moves.push("S");
-		break;
-case 16: /*SHIFT*/
-		select();
-		totalClicks++;
-		moves.push("S");
-		break;
-case 32: /*SPACE*/
-		select();
-		totalClicks++;
-		moves.push("S");
-		break;
-case 37: /*LEFT*/
-		moveLeft();
-		moveCount++;
-		moves.push("L");
-		break;
-case 38: /*UP*/
-		moveUp();
-		moveCount++;
-		moves.push("U");
-		break;
-case 39: /*RIGHT*/
-		moveRight();
-		moveCount++;
-		moves.push("R");
-		break;
-case 40: /*DOWN*/
-		moveDown();
-		moveCount++;
-		moves.push("D");
-		break;
-	case 227:
-		window.open("", "_self").close();
-		break;
-	case 228:
-		startTest();
-		break;
-	default:
-		break;
-	};
-	moveAlphabets.push(document.getElementById(selection).innerHTML);
-	if (document.getElementById("inputText").innerText == "THE WITCHER") {
-		window.alert("finish!");
-		console.log("Move Count: " + moveCount);
-		totalClicks += moveCount;
-		console.log("Total Clicks: " + totalClicks);
-		console.log("Moves: " + moves);
-		console.log("Move Alphabets: " + moveAlphabets);
-		totalTime = moveTime.length;
-		totalTime = moveTime[totalTime-1] - moveTime[0];
-		console.log("Total Time: " + totalTime);
-		console.log("Move Times: " + moveTime);
-	}
-	correction();} else {
+	if (start == 1) {
+		moveTime.push(Date.now());
+		// sleep(50);
 		switch (e.keyCode) {
-		case 227:
-			window.open("", "_self").close();
-			break;
-		case 228:
-			startTest();
-			break;
-		default:
-			break;
+			case 13:
+				/*ENTER*/
+				select();
+				totalClicks++;
+				moves.push("S");
+				break;
+			case 16:
+				/*SHIFT*/
+				select();
+				totalClicks++;
+				moves.push("S");
+				break;
+			case 32:
+				/*SPACE*/
+				select();
+				totalClicks++;
+				moves.push("S");
+				break;
+			case 37:
+				/*LEFT*/
+				moveLeft();
+				moveCount++;
+				moves.push("L");
+				break;
+			case 38:
+				/*UP*/
+				moveUp();
+				moveCount++;
+				moves.push("U");
+				break;
+			case 39:
+				/*RIGHT*/
+				moveRight();
+				moveCount++;
+				moves.push("R");
+				break;
+			case 40:
+				/*DOWN*/
+				moveDown();
+				moveCount++;
+				moves.push("D");
+				break;
+			case 227:
+				window.open("", "_self").close();
+				break;
+			case 228:
+				startTest();
+				break;
+			default:
+				break;
+		};
+		moveAlphabets.push(document.getElementById(selection).innerHTML);
+		if (document.getElementById("inputText").innerText == "THE WITCHER") {
+			window.alert("finish!");
+			console.log("Move Count: " + moveCount);
+			totalClicks += moveCount;
+			console.log("Total Clicks: " + totalClicks);
+			console.log("Moves: " + moves);
+			console.log("Move Alphabets: " + moveAlphabets);
+			totalTime = moveTime.length;
+			totalTime = moveTime[totalTime - 1] - moveTime[0];
+			console.log("Total Time: " + totalTime);
+			console.log("Move Times: " + moveTime);
+		}
+		correction();
+	} else {
+		switch (e.keyCode) {
+			case 227:
+				window.open("", "_self").close();
+				break;
+			case 228:
+				startTest();
+				break;
+			default:
+				break;
 		};
 	}
 };
@@ -254,7 +263,7 @@ function secondKeyboard() {
 	// }
 	if (inputText.innerText) {
 		checkinLetters(inputText.innerText)
-		predKeys = selectedCharacters.slice();	
+		predKeys = selectedCharacters.slice();
 	}
 	for (let k = 101; k < 107; k++) {
 		document.getElementById(k).innerText = predKeys[k - 101];
@@ -285,14 +294,14 @@ function checkinLetters(input) {
 		}
 	}
 
-// console.log(selectedCharacters)
+	// console.log(selectedCharacters)
 
 	selectedCharacters = sortByFrequencyAndRemoveDuplicates(selectedCharacters)
 
 	if (selectedCharacters.length < 6) {
 		for (let i = 0; i < pred[1].length; i++) {
 			selectedCharacters.indexOf(pred[1][i]) === -1 ? selectedCharacters.push(pred[1][i]) : console.log("This item already exists");
-	// selectedCharacters = selectedCharacters.concat(predA)
+			// selectedCharacters = selectedCharacters.concat(predA)
 		}
 	}
 
@@ -305,20 +314,19 @@ function checkinLetters(input) {
 function animation() {
 	var selected = document.getElementById(selection);
 	selected.classList.add("animate");
-	setTimeout(() =>
-	{
+	setTimeout(() => {
 		selected.classList.remove("animate");
 	}, 250);
 }
 
 function correction() {
-	if(!CSS.supports('selector(html:has(body))')) {
+	if (!CSS.supports('selector(html:has(body))')) {
 		if (!document.getElementById(0).classList.contains("text-bg-white")) {
 			document.getElementById(0).classList.replace("text-bg-dark", "text-bg-primary");
 		}
 		if (selection == 0) {
 			document.getElementById(0).classList.replace("text-bg-primary", "text-bg-white");
-		} 
+		}
 		if (!document.getElementById(27).classList.contains("text-bg-white")) {
 			document.getElementById(27).classList.replace("text-bg-dark", "text-bg-primary");
 		}
@@ -337,33 +345,33 @@ function correction() {
 function sleep(milliseconds) {
 	var start = new Date().getTime();
 	for (var i = 0; i < 1e7; i++) {
-		if ((new Date().getTime() - start) > milliseconds){
+		if ((new Date().getTime() - start) > milliseconds) {
 			break;
 		}
 	}
 }
 
 function sortByFrequencyAndRemoveDuplicates(array) {
-	var frequency = {}, value;
+	var frequency = {},
+		value;
 
-// compute frequencies of each value
-	for(var i = 0; i < array.length; i++) {
+	// compute frequencies of each value
+	for (var i = 0; i < array.length; i++) {
 		value = array[i];
-		if(value in frequency) {
+		if (value in frequency) {
 			frequency[value]++;
-		}
-		else {
+		} else {
 			frequency[value] = 1;
 		}
 	}
 
-// make array from the frequency object to de-duplicate
+	// make array from the frequency object to de-duplicate
 	var uniques = [];
-	for(value in frequency) {
+	for (value in frequency) {
 		uniques.push(value);
 	}
 
-// sort the uniques array in descending order by frequency
+	// sort the uniques array in descending order by frequency
 	function compareFrequency(a, b) {
 		return frequency[b] - frequency[a];
 	}

@@ -10,7 +10,7 @@ let str;
 
 let maths;
 
-var start = 0; // change to 0
+var start = 1;
 
 let selection = 7;
 let oldSelection = 6;
@@ -277,10 +277,4 @@ function correction() {
       document.getElementById(114).classList.replace("text-bg-primary", "text-bg-white");
     }
 	}
-}
-
-function startTest() {
-	document.getElementById("curtain").classList.remove("d-none");
-	start = 1;
-	console.log(start);
 }

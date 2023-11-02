@@ -177,30 +177,18 @@ function moveRight() {
 
 function select() {
 	animation();
-	if (selection > 100) {
-		if (selection == 107) {
-			str = inputText.innerText
-			str = str.substring(0, str.length - 1);
-			inputText.innerText = str;
-			secondKeyboard();
-		} else {
-			inputText.innerText += predKeys[selection - 101];
-			secondKeyboard();
-		}
-	} else {
-		if (selection == 0) {
+	if (selection == 0) {
 			inputText.innerText += " ";
-			secondKeyboard();
+			// secondKeyboard();
 		} else if (selection == 27) {
 			str = inputText.innerText
 			str = str.substring(0, str.length - 1);
 			inputText.innerText = str;
-			secondKeyboard();
+			// secondKeyboard();
 		} else {
 			inputText.innerText += alphabets[selection - 1];
-			secondKeyboard();
+			// secondKeyboard();
 		}
-	}
 }
 
 function secondKeyboard() {

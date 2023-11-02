@@ -13,7 +13,7 @@ let predSel = 1;
 var lastLetter = "";
 var lastLetterPos;
 
-var start = 1;
+var start = 0;
 
 let inputText = document.getElementById("inputText");
 var keycode;
@@ -247,4 +247,10 @@ function sleep(milliseconds) {
 }
 
 function sortByFrequencyAndRemoveDuplicates(array) {
+}
+
+function startTest() {
+	document.getElementById("curtain").classList.remove("d-none");
+	start = 1;
+	console.log(start);
 }

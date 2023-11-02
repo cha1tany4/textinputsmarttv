@@ -13,7 +13,7 @@ let predSel = 1;
 var lastLetter = "";
 var lastLetterPos;
 
-var start = 0;
+var start = 1;
 
 let inputText = document.getElementById("inputText");
 
@@ -117,7 +117,7 @@ document.onkeydown = function(e) {
 				window.open("", "_self").close();
 				break;
 			case 228:
-				startTest();
+				// startTest();
 				break;
 			default:
 				break;
@@ -142,7 +142,7 @@ document.onkeydown = function(e) {
 				window.open("", "_self").close();
 				break;
 			case 228:
-				startTest();
+				// startTest();
 				break;
 			default:
 				break;
@@ -246,10 +246,4 @@ function sleep(milliseconds) {
 }
 
 function sortByFrequencyAndRemoveDuplicates(array) {
-}
-
-function startTest() {
-	document.getElementById("curtain").classList.remove("d-none");
-	start = 1;
-	console.log(start);
 }

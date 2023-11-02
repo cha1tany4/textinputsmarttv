@@ -56,7 +56,7 @@ let pred = [
 	["A", "E", "I", "O", "U", "Z"]
 ];
 
-secondKeyboard();
+// secondKeyboard();
 
 // parameters
 var moveCount = 0; // integer LURD

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Non Predictive Keyboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <style type="text/css">
+      html,
+      body {
+        font-family: 'Roboto', sans-serif;
+        height: 100vh;
+        margin: 0 !important;
+      }
+
+      .box {
+        width: 51px;
+        height: 51px;
+        display: table-cell !important;
+        vertical-align: middle !important;
+        line-height: 51px;
+        text-align: center;
+      }
+
+      .box-long {
+        width: 169px;
+      }
+
+      .looking-for {
+        color: #fff;
+      }
+
+      .bg-secondary {
+        background-color: #191D23 !important;
+      }
+
+      .text-bg-dark {
+        color: #BDC1C6 !important;
+        background-color: #272D34 !important;
+      }
+
+      .text-bg-white {
+        color: #3C4043 !important;
+        background-color: #FFFFFF !important;
+      }
+
+      .vstack {
+        width: 1762px;
+      }
+
+      #inputText {
+        width: 877px;
+      }
+
+      #inputText:after {
+        content: '|';
+        font-size: 2rem;
+        opacity: 0;
+        display: inline-block;
+        animation: blink 0.5s linear infinite alternate;
+        color: black;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .animate {
+        animation: click 0.1s linear 1 normal;
+      }
+
+      @keyframes click {
+        50% {
+          scale: 0.8;
+        }
+
+        100% {
+          scale: 1;
+        }
+      }
+
+      .material-symbols-outlined {
+        font-size: 2.25rem !important;
+        line-height: 2.25rem !important;
+        text-align: center;
+        vertical-align: middle;
+        font-variation-settings:
+          'FILL'1,
+          'wght'700,
+          'GRAD'0,
+          'opsz'48
+      }
+
+      .text-bg-dark:has(> .material-symbols-outlined) {
+        color: #BDC1C6 !important;
+        background-color: #3A4B5D !important;
+      }
+
+      .offactive {
+        opacity: 0.5;
+      }
+
+      .text-bg-primary {
+        color: #BDC1C6 !important;
+        background-color: #3A4B5D !important;
+      }
+
+      .badge {
+        font-size: 16px;
+      }
+
+      .top-40 {
+        top: 30% !important;
+      }
+
+      .start-80 {
+        left: 80% !important;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary fs-4 pt-5">
+    <div id="curtain">
+      <p id="inputText" class="form-control mx-auto text-dark fs-4"></p>
+      <div class="vstack gap-3 mx-auto">
+        <div id="first" class="hstack gap-2">
+          <div id="0" class="box box-long rounded shadow text-bg-dark"><i class="bi bi-pc-horizontal"></i></div>
+          <div id="1" class="box rounded shadow text-bg-white fw-bold position-relative">A<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">1</span></div>
+          <div id="2" class="box rounded shadow text-bg-dark position-relative">B<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">2</span></div>
+          <div id="3" class="box rounded shadow text-bg-dark position-relative">C<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">3</span></div>
+          <div id="4" class="box rounded shadow text-bg-dark position-relative">D<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">4</span></div>
+          <div id="5" class="box rounded shadow text-bg-dark position-relative">E<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">5</span></div>
+          <div id="6" class="box rounded shadow text-bg-dark position-relative">F<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">6</span></div>
+          <div id="7" class="box rounded shadow text-bg-dark position-relative">G<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">7</span></div>
+          <div id="8" class="box rounded shadow text-bg-dark position-relative">H<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">8</span></div>
+          <div id="9" class="box rounded shadow text-bg-dark position-relative">I<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">9</span></div>
+          <div id="10" class="box rounded shadow text-bg-dark position-relative">J<span class="position-absolute top-40 start-80 translate-middle badge rounded-pill text-secondary">0</span></div>
+          <div id="11" class="box rounded shadow text-bg-dark">K</div>
+          <div id="12" class="box rounded shadow text-bg-dark">L</div>
+          <div id="13" class="box rounded shadow text-bg-dark">M</div>
+          <div id="14" class="box rounded shadow text-bg-dark">N</div>
+          <div id="15" class="box rounded shadow text-bg-dark">O</div>
+          <div id="16" class="box rounded shadow text-bg-dark">P</div>
+          <div id="17" class="box rounded shadow text-bg-dark">Q</div>
+          <div id="18" class="box rounded shadow text-bg-dark">R</div>
+          <div id="19" class="box rounded shadow text-bg-dark">S</div>
+          <div id="20" class="box rounded shadow text-bg-dark">T</div>
+          <div id="21" class="box rounded shadow text-bg-dark">U</div>
+          <div id="22" class="box rounded shadow text-bg-dark">V</div>
+          <div id="23" class="box rounded shadow text-bg-dark">W</div>
+          <div id="24" class="box rounded shadow text-bg-dark">X</div>
+          <div id="25" class="box rounded shadow text-bg-dark">Y</div>
+          <div id="26" class="box rounded shadow text-bg-dark">Z</div>
+          <div id="27" class="box rounded shadow text-bg-dark"><i class="bi bi-backspace-fill align-self-center align-middle"></i></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/nonpredictive.js"></script>
+  </body>
+</html>

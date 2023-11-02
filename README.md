@@ -27,5 +27,6 @@ For using the prototype on a Chrome browser,
 7. Go to the following links for respective prototypes.
   - Square Alphabetic: [https://cha1tany4.github.io/textinputsmarttv/squarealphabetic](https://cha1tany4.github.io/textinputsmarttv/squarealphabetic)
   - 2-Row Predictive: [https://cha1tany4.github.io/textinputsmarttv/2rowpredictive](https://cha1tany4.github.io/textinputsmarttv/2rowpredictive)
+  - Single Row: [https://cha1tany4.github.io/textinputsmarttv/singlerow](https://cha1tany4.github.io/textinputsmarttv/singlerow)
   - Quad-Directional: [https://cha1tany4.github.io/textinputsmarttv/quaddirectional](https://cha1tany4.github.io/textinputsmarttv/quaddirectional)
 8. Open the dropdown at the top again to see all of the default devices and select “Fire Tv” from the list.

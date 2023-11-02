@@ -1,3 +1,5 @@
+// v1.3.4
+
 let words = ["3", "86"]
 var input
 var selectedSegments = []
@@ -13,7 +15,7 @@ let predSel = 1;
 var lastLetter = "";
 var lastLetterPos;
 
-var start = 1;
+var start = 0;
 
 let inputText = document.getElementById("inputText");
 
@@ -227,14 +229,10 @@ function correction() {
 		if (selection == 27) {
 			document.getElementById(27).classList.replace("text-bg-primary", "text-bg-white");
 		}
-		if (!document.getElementById(107).classList.contains("text-bg-white")) {
-			document.getElementById(107).classList.replace("text-bg-dark", "text-bg-primary");
-		}
-		if (selection == 107) {
-			document.getElementById(107).classList.replace("text-bg-primary", "text-bg-white");
-		}
 	}
 };
+
+
 
 function sleep(milliseconds) {
 	var start = new Date().getTime();
@@ -246,4 +244,10 @@ function sleep(milliseconds) {
 }
 
 function sortByFrequencyAndRemoveDuplicates(array) {
+}
+
+function startTest() {
+	document.getElementById("curtain").classList.remove("d-none");
+	start = 1;
+	console.log(start);
 }

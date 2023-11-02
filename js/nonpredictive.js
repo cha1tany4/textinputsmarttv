@@ -119,7 +119,7 @@ document.onkeydown = function(e) {
 				window.open("", "_self").close();
 				break;
 			case 228:
-				// startTest();
+				startTest();
 				break;
 			default:
 				break;
@@ -144,7 +144,7 @@ document.onkeydown = function(e) {
 				window.open("", "_self").close();
 				break;
 			case 228:
-				// startTest();
+				startTest();
 				break;
 			default:
 				break;

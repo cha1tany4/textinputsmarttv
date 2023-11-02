@@ -10,7 +10,7 @@ let str;
 
 let maths;
 
-var start = 0;
+var start = 1;
 
 let selection = 7;
 let oldSelection = 6;
@@ -83,7 +83,7 @@ document.onkeydown = function(e) {
 				break;
 		};
 		moveAlphabets.push(document.getElementById(selection).innerHTML);
-		if (document.getElementById("inputText").innerText == "THE WITCHER") {
+		if (document.getElementById("inputText").innerText == "TIME TO GO SHOPPING") {
 			window.alert("finish!");
 			console.log("Move Count: " + moveCount);
 			totalClicks += moveCount;

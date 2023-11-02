@@ -13,7 +13,7 @@ let predSel = 1;
 var lastLetter = "";
 var lastLetterPos;
 
-var start = 0;
+var start = 1;
 
 let inputText = document.getElementById("inputText");
 var keycode;

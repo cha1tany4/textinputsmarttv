@@ -10,7 +10,7 @@ let str;
 
 let maths;
 
-var start = 1;
+var start = 0;
 
 let selection = 7;
 let oldSelection = 6;

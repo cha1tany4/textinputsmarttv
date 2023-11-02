@@ -1,6 +1,6 @@
-// v1.3.5
+// v1.5.2
 
-let words = ["3", "86"]
+let words = ["UNWELL", "ABTALKS", "ALIVE", "ANNEFRANK  PARALLEL STORIES", "BLACKAF", "CATS THE MEWVIE"]
 var input
 var selectedSegments = []
 var selectedCharacters = []
@@ -97,23 +97,11 @@ document.onkeydown = function(e) {
 				moveCount++;
 				moves.push("L");
 				break;
-			case 38:
-				/*UP*/
-				moveUp();
-				moveCount++;
-				moves.push("U");
-				break;
 			case 39:
 				/*RIGHT*/
 				moveRight();
 				moveCount++;
 				moves.push("R");
-				break;
-			case 40:
-				/*DOWN*/
-				moveDown();
-				moveCount++;
-				moves.push("D");
 				break;
 			case 227:
 				window.open("", "_self").close();
@@ -131,7 +119,7 @@ document.onkeydown = function(e) {
 			totalClicks += moveCount;
 			console.log("Total Clicks: " + totalClicks);
 			console.log("Moves: " + moves);
-			// console.log("Move Alphabets: " + moveAlphabets);
+			console.log("Move Alphabets: " + moveAlphabets);
 			totalTime = moveTime.length;
 			totalTime = moveTime[totalTime - 1] - moveTime[0];
 			console.log("Total Time: " + totalTime);
@@ -159,18 +147,16 @@ function focus() {
 	document.getElementById(selection).classList.toggle("fw-bold");
 }
 
-function moveUp() {
-};
-
-function moveDown() {
-};
-
 function moveLeft() {
 	oldSelection = selection;
 	selection--;
 	if (selection == -1) {
 		selection = 27;
 		oldSelection = 0;
+	}
+	if (selection == 100) {
+		selection = 107;
+		oldSelection = 101;
 	}
 	focus();
 };
@@ -182,11 +168,26 @@ function moveRight() {
 		selection = 0;
 		oldSelection = 27;
 	}
+	if (selection == 108) {
+		selection = 101;
+		oldSelection = 107;
+	}
 	focus();
 };
 
 function select() {
 	animation();
+	if (selection > 100) {
+		if (selection == 107) {
+			str = inputText.innerText
+			str = str.substring(0, str.length - 1);
+			inputText.innerText = str;
+			secondKeyboard();
+		} else {
+			inputText.innerText += predKeys[selection - 101];
+			secondKeyboard();
+		}
+	} else {
 		if (selection == 0) {
 			inputText.innerText += " ";
 			secondKeyboard();
@@ -200,11 +201,71 @@ function select() {
 			secondKeyboard();
 		}
 	}
+}
 
 function secondKeyboard() {
+	// if (keyboard == 0) {
+	// 	predKeys = pred[selection].slice();	
+	// } else if (keyboard == 1) {
+	// 	lastLetter = inputText.innerText.slice(-1);
+	// 	for (let f = 0; f < 26; f++) {
+	// 		if (lastLetter == alphabets[f]) {
+	// 			lastLetterPos = f+1;
+	// 		}
+	// 	}
+	// 	predKeys = pred[lastLetterPos].slice();
+	// 	oldSelection = selection;
+	// 	selection = 101;
+	// 	focus();
+	// }
+	if (inputText.innerText) {
+		checkinLetters(inputText.innerText)
+		predKeys = selectedCharacters.slice();
+	}
+	for (let k = 101; k < 107; k++) {
+		document.getElementById(k).innerText = predKeys[k - 101];
+	}
 }
 
 function checkinLetters(input) {
+	//console.log(input)
+	selectedSegments = []
+	selectedCharacters = []
+
+	for (let i = 0; i < words.length; i++) {
+		if (words[i].includes(input)) {
+			after_ = words[i].split(input)[1]
+			selectedSegments.push(after_)
+		}
+	}
+
+	// console.log(selectedSegments)
+
+	for (let i = 0; i < selectedSegments.length; i++) {
+		if (selectedSegments[i].charAt(0) == " ") {
+			selectedCharacters.push(selectedSegments[i].charAt(1))
+		} else if (selectedSegments[i].charAt(0) == "") {
+
+		} else {
+			selectedCharacters.push(selectedSegments[i].charAt(0))
+		}
+	}
+
+	// console.log(selectedCharacters)
+
+	selectedCharacters = sortByFrequencyAndRemoveDuplicates(selectedCharacters)
+
+	if (selectedCharacters.length < 6) {
+		for (let i = 0; i < pred[1].length; i++) {
+			selectedCharacters.indexOf(pred[1][i]) === -1 ? selectedCharacters.push(pred[1][i]) : console.log("This item already exists");
+			// selectedCharacters = selectedCharacters.concat(predA)
+		}
+	}
+
+	//console.log(selectedCharacters)
+
+	// console.log(selectedCharacters[0],selectedCharacters[1],selectedCharacters[2],selectedCharacters[3],selectedCharacters[4],selectedCharacters[5]);
+
 }
 
 function animation() {
@@ -229,10 +290,14 @@ function correction() {
 		if (selection == 27) {
 			document.getElementById(27).classList.replace("text-bg-primary", "text-bg-white");
 		}
+		if (!document.getElementById(107).classList.contains("text-bg-white")) {
+			document.getElementById(107).classList.replace("text-bg-dark", "text-bg-primary");
+		}
+		if (selection == 107) {
+			document.getElementById(107).classList.replace("text-bg-primary", "text-bg-white");
+		}
 	}
 };
-
-
 
 function sleep(milliseconds) {
 	var start = new Date().getTime();
@@ -244,6 +309,31 @@ function sleep(milliseconds) {
 }
 
 function sortByFrequencyAndRemoveDuplicates(array) {
+	var frequency = {},
+		value;
+
+	// compute frequencies of each value
+	for (var i = 0; i < array.length; i++) {
+		value = array[i];
+		if (value in frequency) {
+			frequency[value]++;
+		} else {
+			frequency[value] = 1;
+		}
+	}
+
+	// make array from the frequency object to de-duplicate
+	var uniques = [];
+	for (value in frequency) {
+		uniques.push(value);
+	}
+
+	// sort the uniques array in descending order by frequency
+	function compareFrequency(a, b) {
+		return frequency[b] - frequency[a];
+	}
+
+	return uniques.sort(compareFrequency);
 }
 
 function startTest() {

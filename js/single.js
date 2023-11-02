@@ -278,9 +278,9 @@ function correction() {
 		if (selection == 27) {
 			document.getElementById(27).classList.replace("text-bg-primary", "text-bg-white");
 		}
-		if (!document.getElementById(107).classList.contains("text-bg-white")) {
-			document.getElementById(107).classList.replace("text-bg-dark", "text-bg-primary");
-		}
+		// if (!document.getElementById(107).classList.contains("text-bg-white")) {
+		// 	document.getElementById(107).classList.replace("text-bg-dark", "text-bg-primary");
+		// }
 		if (selection == 107) {
 			document.getElementById(107).classList.replace("text-bg-primary", "text-bg-white");
 		}

@@ -14,7 +14,7 @@ const keyIndex = [0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 20, 21, 22, 23, 24, 
 const keys2 = ["~", "`", "!", "@", "#", "£", "€", "$", "¢", "¥", "§", "%", "°", "^", "&", "*", "(", ")", "-", "_", "+", "=", "[", "]", "|", "\\", "/", ":", ";", "\"", "'", "<", ">", ",", ".", "?"];
 const keyIndex2 = [1100, 1101, 1102, 1103, 1104, 1105, 1110, 1111, 1112, 1113, 1114, 1115, 1120, 1121, 1122, 1123, 1124, 1125, 1130, 1131, 1132, 1133, 1134, 1135, 1140, 1141, 1142, 1143, 1144, 1145, 1150, 1151, 1152, 1153, 1154, 1155];
 
-var start = 1;
+var start = 0;
 
 // parameters
 var moveCount = 0; // integer LURD
@@ -400,4 +400,10 @@ function sleep(milliseconds) {
       break;
     }
   }
+}
+
+function startTest() {
+	document.getElementById("curtain").classList.remove("d-none");
+	start = 1;
+	console.log(start);
 }

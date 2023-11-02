@@ -1,4 +1,4 @@
-let words = ["3", "86", "300", "1899"]
+let words = ["3", "86"]
 var input
 var selectedSegments = []
 var selectedCharacters = []
@@ -16,7 +16,6 @@ var lastLetterPos;
 var start = 0;
 
 let inputText = document.getElementById("inputText");
-var keycode;
 
 // let buffer = ""
 
@@ -124,7 +123,7 @@ document.onkeydown = function(e) {
 				break;
 		};
 		moveAlphabets.push(document.getElementById(selection).innerHTML);
-		if (document.getElementById("inputText").innerText == "TIME TO GO SHOPPING") {
+		if (document.getElementById("inputText").innerText == "THE WITCHER") {
 			window.alert("finish!");
 			console.log("Move Count: " + moveCount);
 			totalClicks += moveCount;
